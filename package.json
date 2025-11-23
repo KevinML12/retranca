@@ -1,0 +1,18 @@
+{
+  "name": "employee-directory-monorepo",
+  "version": "1.0.0",
+  "description": "Monorepo Root - NestJS Backend + React Frontend",
+  "author": "Tech Lead",
+  "scripts": {
+    "setup": "node setup.js",
+    "install:all": "npm install && cd backend && npm install && cd ../frontend && npm install",
+    "start:all": "concurrently \"npm run start:dev --prefix backend\" \"npm run dev --prefix frontend\"",
+    "build:all": "npm run build --prefix backend && npm run build --prefix frontend",
+    "lint:all": "npm run lint --prefix backend && npm run lint --prefix frontend",
+    "test:all": "npm run test --prefix backend",
+    "clean": "rmdir /s /q backend\\dist frontend\\dist node_modules backend\\node_modules frontend\\node_modules 2>nul || true"
+  },
+  "devDependencies": {
+    "concurrently": "^8.2.2"
+  }
+}
